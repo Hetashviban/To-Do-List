@@ -1,99 +1,131 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.container{
-    width: 100%;
-    min-height: 100vh;
-    padding: 2em;
-    background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2em;
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
 }
-.todo-app{
-    width: 100%;
-    height: 82vh;
-    max-width: 540px;
-    background: #fff;
-    margin: 1em auto 1em;
-    border-radius: 10px;
+.todo-app {
+  width: 100%;
+  height: 82vh;
+  max-width: 540px;
+  background: #fff;
+  margin: 1em auto 1em;
+  border-radius: 10px;
+  overflow-y: auto;
 }
-.todo-app h2{
-    color: #002765;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1em;
+
+/*Styling the scrollbar*/
+.todo-app::-webkit-scrollbar {
+  width: 12px; 
 }
-.todo-app img{
-    width: 2.6vw;
-    margin-left: 0.5em;
+
+.todo-app::-webkit-scrollbar-thumb {
+  background-color: #fab4ab8d; 
+  border-radius: 6px; 
 }
-.row{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 30px;
-    background-color: #edeef0;
-    margin: 0.7em 2em;
-    padding: 0.5em;
+
+.todo-app::-webkit-scrollbar-track {
+  background-color: #edeef0;
+  border-radius: 6px;
 }
-input{
-    flex: 1; /*This will help to take the full width*/
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 0.4em 1em;
-    font-weight: 25px;
-    font-size: 15px;
+
+.todo-app h2 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1em;
 }
-button{
-    border: none;
-    outline: none;
-    padding: 0.7em 1.5em;
-    background-color: #ff5949;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 40px;
+.todo-app img {
+  width: 2.6vw;
+  margin-left: 0.5em;
 }
-ul li{
-    list-style: none;
-    font-size: 17px;
-    padding: 0.5em 5em;
-    user-select: none;
-    /*By setting user-select: none;, the CSS is preventing users from selecting and highlighting text within these list items. 
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  background-color: #edeef0;
+  margin: 0.7em 2em;
+  padding: 0.5em;
+}
+input {
+  flex: 1; /*This will help to take the full width*/
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.4em 1em;
+  font-weight: 25px;
+  font-size: 15px;
+}
+button {
+  border: none;
+  outline: none;
+  padding: 0.7em 1.5em;
+  background-color: #ff5949;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 0.6em 0em 1em 5em;
+  user-select: none;
+  /*By setting user-select: none;, the CSS is preventing users from selecting and highlighting text within these list items. 
     This can be useful in certain situations, such as when you want to create a user interface where text selection is not necessary or desirable, 
     such as in a to-do list where clicking on items might trigger specific actions without the need for text selection.*/
-    /*
+  /*
     user-select: none; is applied to the ul li selector. The user-select property in CSS controls the user's ability to select text.
     When set to none, it prevents the user from selecting text within the specified element.
     */
-    /*Prevents users from selecting or highlighting the text inside the list items. This can be useful for certain interfaces where text selection is not needed.*/
-    cursor: pointer;
-    position: relative;
+  /*Prevents users from selecting or highlighting the text inside the list items. This can be useful for certain interfaces where text selection is not needed.*/
+  cursor: pointer;
+  position: relative;
 }
 
-ul li::before{
-    content: '';
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    background-image: url(./assets/unchecked.png);
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 55px;
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-image: url(./assets/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 55px;
 }
 
-ul li.checked{
-    color: #555;
-    text-decoration: line-through;
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
 }
 
-ul li.checked::before{
-    background-image: url(./assets/checked.png);
+ul li.checked::before {
+  background-image: url(./assets/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  left: 19em;
+  width: 1.2em;
+  height: 1.2em;
+  font-size: 1.375em;
+  color: #555;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #edeef0;
 }
